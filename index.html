@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="image/jpg" href="kis_logo.png" />
+    <title>Keep It Simple - Prueba técnica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <img id="logo" src="kis_logo.png" alt="logo" />
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-4">
+          <input
+            class="form-control"
+            type="file"
+            id="input"
+            accept=".xls,.xlsx"
+          />
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-warning" id="button">Generar tabla</button>
+        </div>
+      </div>
+
+      <div class="filters_section">
+        <div class="abs-center">
+          <form action="#" class="border p-3 form">
+            <div class="form-group">
+              <label for="supervisor_filter" class="filters">Supervisor:</label>
+              <input
+                type="text"
+                id="supervisor_filter"
+                name="supervisor_filter"
+              />
+            </div>
+            <div class="form-group">
+              <label for="clase_filter" class="filters">Clase:</label>
+              <input type="text" id="clase_filter" name="clase_filter" />
+            </div>
+            <div class="form-group">
+              <label for="departamento_filter" class="filters"
+                >Departamento:</label
+              >
+              <input
+                type="text"
+                id="departamento_filter"
+                name="departamento_filter"
+              />
+            </div>
+            <div class="form-group">
+              <label for="subsidiaria_filter" class="filters"
+                >Subsidiaria:</label
+              >
+              <input
+                type="text"
+                id="subsidiaria_filter"
+                name="subsidiaria_filter"
+              />
+            </div>
+            <button
+              class="btn btn-warning"
+              id="button-filter"
+              onclick="filter()"
+            >
+              Filtrar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <table id="data_table" style="width: 100%">
+        <tr>
+          <th onclick="sortTable(0)" style="width: 15%">Nombre</th>
+          <th onclick="sortTable(1)" style="width: 15%">Cargo</th>
+          <th onclick="sortTable(2)" style="width: 15%">Supervisor</th>
+          <th onclick="sortTable(3)" style="width: 15%">Clase</th>
+          <th onclick="sortTable(4)" style="width: 15%">Subsidiaria</th>
+          <th onclick="sortTable(5)" style="width: 15%">Departamento</th>
+        </tr>
+      </table>
+
+      <div class="row">
+        <div class="col-md-12 col-md-offset-9 col-xs-12 text-center">
+          <div class="btn-group" role="group">
+            <button
+              class="btn-success"
+              onclick="exportToExcel('employees')"
+            >
+              Exportar a EXCEL
+            </button>
+            <button class="btn-primary" onclick="exportToCSV('employees')">
+              Exportar a CSV
+            </button>
+            <button class="btn-danger" onclick="exportToPDF('employees')">
+              Exportar a PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>

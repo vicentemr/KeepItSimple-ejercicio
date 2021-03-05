@@ -1,0 +1,56 @@
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+body {
+  background-color: #252525;
+}
+
+.filters_section {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+  margin: auto;
+  text-align: center;
+}
+
+#data_table {
+  margin: auto;
+  margin-bottom: auto;
+  background-color: #ccc;
+}
+
+#filters {
+  display: inline-block;
+  text-align: right;
+  font-weight: bold;
+}
+
+.container-fluid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn_download{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.abs-center {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 450px;
+}
+
+.row{
+  margin: 10px;
+}
